@@ -1,60 +1,25 @@
 package Java_Swing_GUI.Windowbuilder;
 
 import javax.swing.*;
-import java.awt.event.*;
 
-public class Calculator extends JDialog {
-    private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
-
-    public Calculator() {
-        setContentPane(contentPane);
-        setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
-
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
-
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-    }
-
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
-
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
+public class Calculator {
+    private JPanel Calculator;
+    private JButton a1Button;
+    private JButton a3Button1;
+    private JButton a6Button1;
+    private JButton a4Button;
+    private JButton ACButton;
+    private JButton button6;
+    private JButton a7Button1;
+    private JButton xButton;
+    private JTextField textField1;
+    private JButton a00Button;
 
     public static void main(String[] args) {
-        Calculator dialog = new Calculator();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+        JFrame frame = new JFrame("Calculator");
+        frame.setContentPane(new Calculator().Calculator);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
